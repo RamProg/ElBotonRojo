@@ -1,0 +1,27 @@
+﻿@model ElBotonRojo.Models.Jugador
+
+@{
+    ViewData["Title"] = "Resultados";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Jugador</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Partidas)
+        </dt>
+        @foreach (var item in Model.Partidas)
+        {
+            <dd class="col-sm-2">
+                @Html.DisplayFor(model => item.Clicks)
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

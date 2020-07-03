@@ -1,0 +1,78 @@
+﻿@model ElBotonRojo.Models.Jugador
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Jugador</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apodo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apodo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Residencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Residencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+    </dl>
+</div>
+<table class="table table-sm table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Historial de Partidas</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Clicks</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int cantidad = Model.Partidas.Count();}
+        @for (int i = 0; i < cantidad; i++)
+        {
+            <tr>
+                @{int j = i + 1;}
+                <th scope="row">@j</th>
+                <td>@Html.DisplayFor(model => Model.Partidas[i].Fecha)</td>
+                <td>@Html.DisplayFor(model => Model.Partidas[i].Clicks)</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+<div>
+    <input type="button" onclick="window.location.href='/Jugadores/Edit/@Model.Id'" value="Editar Jugador" class="btn btn-dark" />
+
+    <input type="button" onclick="window.location.href='/Jugadores/Index'" value="Volver a la Lista" class="btn btn-dark" />
+
+    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>*@
+</div>

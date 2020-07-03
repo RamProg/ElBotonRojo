@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ElBotonRojo.Models.Partida>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ranking</h1>
+
+<table id="Ranking" class="table table-hover ">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Apodo)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Clicks)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{var map = new Dictionary<int, int>();}
+        @foreach (var item in Model)
+        {
+            if (!map.ContainsKey(item.IdJugador))
+            {
+                map.Add(item.IdJugador, item.Clicks);
+            }
+            else
+            {
+                if (map[item.IdJugador] < item.Clicks)
+                {
+                    map[item.IdJugador] = item.Clicks;
+                }
+            }
+        }
+        @foreach (var item in map)
+        {
+            <tr>
+                <td>
+                    @foreach (var partida in Model)
+                    {
+                        if (partida.IdJugador == item.Key)
+                        {
+                            @Html.DisplayFor(modelItem => partida.Apodo)
+                            break;
+                        }
+                    }
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+    <input type="button" onclick="window.location.href='/Partidas/Create'" value="Volver a Jugar" class="btn btn-dark" />
+
+@*<td>
+        <a asp-action="Edit" asp-route-id="@item.Key">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Key">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Key">Delete</a>
+    </td>*@
+
+<script type="text/javascript">
+    function ordenar() {
+        sortTable()
+    }
+    window.onload = ordenar;
+</script>

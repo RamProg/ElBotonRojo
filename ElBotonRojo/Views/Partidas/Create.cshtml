@@ -1,0 +1,66 @@
+﻿@model ElBotonRojo.Models.Juego
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">El Botón Rojo</h1>
+
+        <form asp-action="Create">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex align-content-center flex-wrap">
+                        <div id="validacion" class="text-danger"></div>
+                        <div class="input-group">
+                            <select class="custom-select custom-select-lg" name="IdJugador" id="IdJugador" onchange="borrarValidacion()">
+                                <option value="-1" selected disabled>Elegir Jugador</option>
+
+                                @foreach (var item in Model.Jugadores)
+                                {
+                                    <option value="@item.Id">@item.Apodo</option>
+                                }
+                            </select>
+                            <div class="input-group-append">
+                                <button type="button" onClick="nuevoJugador()" class="btn btn-dark btn-lg" id="newPlayer">Nuevo</button>
+                            </div>
+                        </div>
+                        <div id="validacion2" class="text-danger"></div>
+                    </div>
+                    <div id="validacion" class="text-danger "></div>
+                    <div class="col">
+                        <img name="jsbutton" id="botonazo" class="unselectable" src="/img/button.png" usemap="#image-map" width="250" height="250" border="0" alt="javascript button">
+                        <map name="image-map" class="unselectable">
+                            <area tabindex="-1" alt="mapa" href="#" coords="125,123,77" shape="circle" onMouseDown="return handleMDown()" onMouseUp="return handleMUp()" onmouseleave="return handleMUp()" onclick="contarClick()" ondragstart="return false;">
+                        </map>
+                    </div>
+                    <div class="col d-flex align-content-center flex-wrap">
+
+                        <div class="row align-items-center ">
+                            <div class="alert alert-dark font-weight-bold">
+                                <div for="Clicks" id="pulsaciones">
+                                    Clicks: 0
+                                </div>
+                                <div id="chronotime">
+                                    Tiempo: 5:000
+                                </div>
+                            </div>
+                        </div>
+                            
+                    </div>
+
+                        <input type="hidden" name="startstop" value="start!" onClick="chronoStart()" />
+                        <input type="hidden" id="Clicks" data-val="true" name="Clicks" value="">
+                    </div>
+                    </div>
+        </form>
+        <h4>
+            Debés seleccionar tu apodo o crearlo si es tu primera vez.<br>Luego de seleccionarlo, tenés 5 segundos para apretar el botón rojo todas las veces que puedas.
+        </h4>
+
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

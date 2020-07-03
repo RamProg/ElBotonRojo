@@ -1,0 +1,105 @@
+﻿@model ElBotonRojo.Models.Jugador
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Jugador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apodo" class="control-label"></label>
+                <input asp-for="Apodo" class="form-control" />
+                <span asp-validation-for="Apodo" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Residencia" class="control-label"></label>
+                <input asp-for="Residencia" class="form-control" />
+                <span asp-validation-for="Residencia" class="text-danger"></span>*@
+
+        <div class="form-group">
+            <label asp-for="Residencia" class="control-label"></label>
+            <select class="custom-select" name="Residencia">
+                <option value="" disabled selected>Elegir Barrio</option>
+                <option value="Agronomía">Agronomía</option>
+                <option value="Almagro">Almagro</option>
+                <option value="Balvanera">Balvanera</option>
+                <option value="Barracas">Barracas</option>
+                <option value="Belgrano">Belgrano</option>
+                <option value="Boedo">Boedo</option>
+                <option value="Caballito">Caballito</option>
+                <option value="Chacarita">Chacarita</option>
+                <option value="Coghlan">Coghlan</option>
+                <option value="Colegiales">Colegiales</option>
+                <option value="Constitución">Constitución</option>
+                <option value="Flores">Flores</option>
+                <option value="Floresta">Floresta</option>
+                <option value="La Boca">La Boca</option>
+                <option value="La Paternal">La Paternal</option>
+                <option value="Liniers">Liniers</option>
+                <option value="Mataderos">Mataderos</option>
+                <option value="Monte Castro">Monte Castro</option>
+                <option value="Monserrat ">Monserrat </option>
+                <option value="Nueva Pompeya">Nueva Pompeya</option>
+                <option value="Núñez">Núñez</option>
+                <option value="Palermo">Palermo</option>
+                <option value="Parque Avellaneda">Parque Avellaneda</option>
+                <option value="Parque Chacabuco">Parque Chacabuco</option>
+                <option value="Parque Chas">Chas</option>
+                <option value="Parque Patricios">Parque Patricios</option>
+                <option value="Puerto Madero">Puerto Madero</option>
+                <option value="Recoleta">Recoleta</option>
+                <option value="Retiro">Retiro</option>
+                <option value="Saavedra">Saavedra</option>
+                <option value="San Cristóbal">San Cristóbal</option>
+                <option value="San Nicolás">San Nicolás</option>
+                <option value="San Telmo">San Telmo</option>
+                <option value="Vélez Sársfield">Vélez Sársfield</option>
+                <option value="Versalles">Versalles</option>
+                <option value="Villa Crespo">Villa Crespo</option>
+                <option value="Villa del Parque">Villa del Parque</option>
+                <option value="Villa Devoto">Villa Devoto</option>
+                <option value="Villa General Mitre">Villa General Mitre</option>
+                <option value="Villa Lugano">Villa Lugano</option>
+                <option value="Villa Luro">Villa Luro</option>
+                <option value="Villa Ortúzar">Villa Ortúzar</option>
+                <option value="Villa Pueyrredón">Villa Pueyrredón</option>
+                <option value="Villa Real">Villa Real</option>
+                <option value="Villa Riachuelo">Villa Riachuelo</option>
+                <option value="Villa Santa Rita">Villa Santa Rita</option>
+                <option value="Villa Soldati ">Villa Soldati </option>
+                <option value="Villa Urquiza">Villa Urquiza</option>
+                <option value="Gran Buenos Aires">Gran Buenos Aires</option>
+                <option value="Resto del País">Resto del País</option>
+                <option value="Fuera de Argentina">Fuera de Argentina</option>
+            </select>
+            <span asp-validation-for="Residencia" class="text-danger"></span>
+
+        </div>
+                <div class="form-group">
+                    <label asp-for="Edad" class="control-label"></label>
+                    <input asp-for="Edad" class="form-control" />
+                    <span asp-validation-for="Edad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Crear Jugador" class="btn btn-dark" />
+                    <input type="button" onclick="window.location.href='/Jugadores/Index'" value="Ver Jugadores" class="btn btn-dark" />
+
+                </div>
+</form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

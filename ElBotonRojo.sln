@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElBotonRojo", "ElBotonRojo\ElBotonRojo.csproj", "{BA9C48B0-02D2-46CB-BEDC-3BB29DFA738C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA9C48B0-02D2-46CB-BEDC-3BB29DFA738C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9C48B0-02D2-46CB-BEDC-3BB29DFA738C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9C48B0-02D2-46CB-BEDC-3BB29DFA738C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9C48B0-02D2-46CB-BEDC-3BB29DFA738C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D517A595-DC11-49B9-86F3-1B7454E2FCEF}
+	EndGlobalSection
+EndGlobal

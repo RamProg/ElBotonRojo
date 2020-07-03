@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ElBotonRojo.Models.Jugador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Jugadores</h1>
+
+<table class="table table-hover" id="Ranking">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apodo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Residencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apodo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Residencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    <a class="text-dark" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="text-dark" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a class="text-dark" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+    <input type="button" onclick="window.location.href='/Jugadores/Create'" value="Crear nuevo Jugador" class="btn btn-dark" />
+    <input type="button" onclick="window.location.href='/Partidas/Create'" value="Volver a Jugar" class="btn btn-dark" />
+
