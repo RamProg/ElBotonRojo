@@ -13,18 +13,18 @@ namespace ElBotonRojo.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required(ErrorMessage = "Debe ingresar su nombre.")]
-        [StringLength(15, MinimumLength = 1)]
+        [StringLength(20, MinimumLength = 1)]
         public String Nombre { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar su apodo.")]
-        [StringLength(30, MinimumLength = 1)]
+        [StringLength(20, MinimumLength = 1)]
         public String Apodo { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar su residencia.")]
-        [StringLength(100, MinimumLength = 1)]
+        [StringLength(30, MinimumLength = 1)]
         public String Residencia { get; set; }
 
-        [Range(1, 99, ErrorMessage = "Debe ingresar una edad válida")]
+        [Range(1, 120, ErrorMessage = "Debe ingresar una edad válida")]
         [Required(ErrorMessage = "Debe ingresar su edad.")]
         public int Edad { get; set; }
 
